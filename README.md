@@ -24,6 +24,17 @@ Next a schematic was developed showing changes from the last lab. Three pins of 
 ####Updated Schematic
 ![alt text](https://github.com/JasperArneberg/ECE382_Lab7/blob/master/schematic.png?raw=true "Schematic")
 
+####Important Registers
+ADC10CTL0: Control Register 0, used to select references (SREFx), sample-and-hold times (ADC10SHTx), can enable interrupts (ADC10IE)  
+ADC10CTL1: Control Register 1, used to select input channel (INCHx), ADC10BUSY tells user conversion is still happening  
+P1DIR: set BIT0 as output for red LED  
+P1OUT: use to set or clear BIT0, the red LED  
+
+####Software Overview
+The ADC can create interrupts, but this creates unnecessary confusion in the coding. It is much easier to simply wait for the conversion to finish, and then move on in the code rather than using interrupts. An approach similar to the one on Dr. Coulston's website will be used.  
+
+The signals from all three IR sensors will be decoded sequentially one after the other. This will allow the voltages of each sensor to have an effect on the decision processes of the robot.
+
 ##Conclusion
 
 ##Documentation
