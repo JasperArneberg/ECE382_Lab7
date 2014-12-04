@@ -35,6 +35,9 @@ The ADC can create interrupts, but this creates unnecessary confusion in the cod
 
 The signals from all three IR sensors will be decoded sequentially one after the other. This will allow the voltages of each sensor to have an effect on the decision processes of the robot.
 
+##Debugging
+When initially testing Dr. Coulston's code, the LEDs would stay lit even when there was not an object in close range. This error was only fixed when the computer USB cord was removed. This 
+
 ##Conclusion
 
 ##Documentation
