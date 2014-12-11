@@ -40,12 +40,20 @@ In order to implement required functionality, signals from all three IR sensors 
 
 The LEDs were lit by setting specific bits on port 1 to high or low. The red LED is tied to pin 0, and the green LED is tied to pin 6. In order to allow this functionality, pins 0 and 6 were not used for ADC.
 
+It is important to note that the opearting voltage of the IR sensors was changed to 5 V. This change was made in an attempt to be able to operate correctly at a higher level of noise. 
+
+##B Functionality
+For B functionality, a standalone library for the ADC was created and released on github. Although this library was not actually used in the Lab 7 code, it was used heavily in the Lab 8 code. The library and an example of its usage can be found at the following address:
+
+[https://github.com/JasperArneberg/ADC10_Library](https://github.com/JasperArneberg/ADC10_Library)
+
+
 ##A Functionality
 For A functionality, all three IR sensors were fully characterized. The robot was placed a certain distance from the wall at a certain orientation, and then the ADC value of the signal was recorded. This hexadecimal value was then converted to decimal so that it could be graphed. This value was then converted to the original voltage by dividing by 1023 and multiplying by 3.3 V.
 
 ![alt text](https://github.com/JasperArneberg/ECE382_Lab7/blob/master/characterization.png?raw=true "IR Sensor Characterization")
 
-The left and right sensors appear to follow an exponential curve, which makes sense for light reflection. The center sensor, however, does not drop off quickly at all. This is because the max value that the MSP430 ADC can interpret is 3.3 V, its operating temperature. The voltage of the center sensor was above 3.3 V, making for a slightly skewed graph. For the purposes of Lab 8, however, it should work just fine.
+The left and right sensors appear to follow an exponential curve, which makes sense for light reflection. The center sensor, however, does not drop off quickly at all. This is because the max value that the MSP430 ADC can interpret is 3.3 V, its operating voltage. The voltage of the center sensor was above 3.3 V, making for a slightly skewed graph. For the purposes of Lab 8, however, it should work just fine.
 
 It is also important to note that once the robot is more than 6 inches away from a wall, there is a very negligible difference in the IR signal. This means that the IR sensors are only useful in short distance applications.
 
